@@ -1,0 +1,79 @@
+Sim, pode abrir e executar em outro computador — esse é justamente um dos objetivos do .jar do Spring Boot.
+
+Passos:
+
+1. Copiar o .jar
+
+Leve o arquivo:
+
+filasaude.jar
+
+para o outro computador.
+
+2. Instalar Java (mesma versão ou superior)
+
+Verifique:
+
+java -version
+
+Exemplo:
+
+Java 25
+
+(ou a versão usada para compilar o projeto)
+
+3. Executar o projeto
+
+Abra o terminal na pasta do .jar:
+
+java -jar filasaude.jar
+
+ou:
+
+java -jar filasaude-0.0.1-SNAPSHOT.jar
+
+Vai subir algo como:
+
+Tomcat started on port 8080
+Started FilasaudeApplication
+
+Depois abra:
+
+http://localhost:8080
+4. Atenção ao MySQL (importante)
+
+Seu application.properties está apontando para:
+
+spring.datasource.url=jdbc:mysql://localhost:3306/clinica
+spring.datasource.username=root
+spring.datasource.password=root
+
+Então no outro computador precisa:
+
+✅ MySQL instalado
+✅ Banco clinica criado
+✅ Usuário/senha compatíveis
+
+Criar banco:
+
+CREATE DATABASE clinica;
+
+Como você está usando:
+
+spring.jpa.hibernate.ddl-auto=update
+
+o Spring recria as tabelas automaticamente.
+
+5. Se quiser distribuir sem instalar MySQL
+
+Depois você pode evoluir para:
+
+Spring Boot + H2
+
+ou
+
+Spring Boot + Docker + MySQL
+
+Aí fica mais portátil.
+
+Então para responder objetivamente: sim, seu filasaude.jar já pode rodar em outro computador, desde que tenha Java e acesso ao banco.
