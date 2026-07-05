@@ -33,7 +33,6 @@ public class MainApp extends Application {
 
     	PacienteControllerFX.setApplicationContext(context);
 
-    	launch(args);
         launch(args);
     }
 }
