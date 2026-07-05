@@ -38,10 +38,7 @@ public class Paciente {
 
     // CHECKBOX MÚLTIPLO
     @ElementCollection
-    @CollectionTable(
-        name = "paciente_habilidades",
-        joinColumns = @JoinColumn(name = "paciente_id")
-    )
+    @CollectionTable(name = "paciente_habilidades",joinColumns = @JoinColumn(name = "paciente_id"))
     @Column(name = "habilidade")
     private List<String> habilidades = new ArrayList<>();
 
