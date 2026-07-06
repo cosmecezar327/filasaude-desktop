@@ -1,5 +1,5 @@
 # FilaSaude Desktop
-
+alerado para o java 21
 Sistema desktop para gerenciamento de pacientes em unidades de saúde.
 
 ## Tecnologias utilizadas
