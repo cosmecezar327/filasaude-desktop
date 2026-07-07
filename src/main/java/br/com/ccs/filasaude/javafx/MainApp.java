@@ -12,27 +12,34 @@ import javafx.stage.Stage;
 
 public class MainApp extends Application {
 
-	@Override
-	public void start(Stage stage) throws Exception {
+    private ConfigurableApplicationContext context;
 
-	    FXMLLoader loader = new FXMLLoader(
-	            getClass().getResource("/fxml/paciente_form.fxml"));
+    @Override
+    public void init() {
+        context = SpringApplication.run(FilasaudeApplication.class);
 
-	    Scene scene = new Scene(loader.load(), 500, 300);
+        PacienteControllerFX.setApplicationContext(context);
+    }
 
-	    stage.setTitle("Cadastro de Paciente");
-	    stage.setScene(scene);
-	    stage.show();
-	}
+    @Override
+    public void start(Stage stage) throws Exception {
+
+        FXMLLoader loader = new FXMLLoader(
+                getClass().getResource("/fxml/paciente_form.fxml"));
+
+        Scene scene = new Scene(loader.load());
+
+        stage.setTitle("Cadastro de Paciente");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @Override
+    public void stop() {
+        context.close();
+    }
 
     public static void main(String[] args) {
-    	ConfigurableApplicationContext context  =
-    	        SpringApplication.run(
-    	                FilasaudeApplication.class,
-    	                args);
-
-    	PacienteControllerFX.setApplicationContext(context);
-
         launch(args);
     }
 }

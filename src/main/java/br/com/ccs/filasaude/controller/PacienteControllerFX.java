@@ -88,7 +88,7 @@ public class PacienteControllerFX {
 	    System.out.println(repository);
 	    
 	    repository.save(paciente);
-
+	    System.out.println("Paciente: "+txtNome.getText());
 	    System.out.println("Paciente salvo!");
 	}
 	
